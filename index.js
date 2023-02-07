@@ -16,9 +16,9 @@ setInterval(() =>{
 //trigger the alarm
 setInterval(() =>{
     let now = new Date();
-    for(alarm of alarms){
-        if(alarm.time.toTimeString() == now.toTimeString()){
-            alert(`Your alarm is off for "${alarm.text}"`);
+    for(item of alarms){
+        if(item.time.toTimeString() == now.toTimeString()){
+            alert(`Your alarm is off for "${item.text}"`);
         }
     }
 }, 100);
@@ -35,10 +35,11 @@ set_button.addEventListener('click', () => {
 })
 
 function addAlarm(data, text){
-    let hr = parseInt(data.slice(0,2)) <= 12 ? parseInt(data.slice(0,2)) : parseInt(data.slice(0,2))-12;
+    let hr = parseInt(data.slice(0,2));
     let min = parseInt(data.slice(3,5));
     let mer = parseInt(data.slice(0,2)) < 12 ? "AM" : "PM";
     var dt1 = new Date();
+    console.log(hr, min);
     dt1.setHours(hr,min,00);
     alarms.push({
         text: text,
@@ -54,9 +55,11 @@ function addAlarm(data, text){
 //renderList
 function  addAlarmstoList(alarm){
     const li = document.createElement('li');
-
+    
+    let alarm_hour = alarm.hour <= 12 ? alarm.hour : alarm.hour-12;
+    let alarm_min = alarm.minute <=9 ? "0"+alarm.minute : alarm.minute;
     li.innerHTML = `
-        <p>${alarm.hour}:${alarm.minute} ${alarm.meridiem}</p>
+        <p>${alarm_hour}:${alarm_min} ${alarm.meridiem}</p>
         <p>${alarm.text}</p>
         <p><i id=${alarm.id} class="fa-solid fa-delete-left"></i></p>
     `
