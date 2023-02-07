@@ -43,6 +43,7 @@ body{
     top: 35%;
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
 }
 
@@ -50,9 +51,13 @@ body{
     outline: 0;
 }
 
+#input-time{
+    width: 20%;
+}
+
 #input-text{
     font-family: sans-serif;
-    width: 150px;
+    width: 35%;
 }
 
 #set-time button{
@@ -124,4 +129,25 @@ body{
 #list li i{
     color: rgb(236, 44, 76);
     cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+    
+    #set-time{
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #set-time input{
+        margin-bottom: 5px;
+    }
+
+    #list li p{
+        font-size: 1rem;
+    }
+
+    #all-alarms{
+        top: 55%;
+        height: 40%;
+    }
 }
