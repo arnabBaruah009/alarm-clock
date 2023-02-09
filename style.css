@@ -131,6 +131,11 @@ body{
     cursor: pointer;
 }
 
+lord-icon{
+    margin: auto;
+    top: 5%;
+}
+
 @media screen and (max-width: 700px) {
 
     #container{
