@@ -39,7 +39,6 @@ function addAlarm(data, text){
     let min = parseInt(data.slice(3,5));
     let mer = parseInt(data.slice(0,2)) < 12 ? "AM" : "PM";
     var dt1 = new Date();
-    console.log(hr, min);
     dt1.setHours(hr,min,00);
     alarms.push({
         text: text,
